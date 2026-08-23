@@ -68,7 +68,7 @@
       "files": [
         {
           "path": "furinapet.plugin.json",
-          "sha256": "e838c8463a60d7f1b3e3bee2e64e1bdca08cc1ba3dc2004a2c687ef01b0221c7"
+          "sha256": "2016bdff244f6e9019b9d36e123e459d0236dd0155be0539bfca6f445b7fadbb"
         },
         {
           "path": "index.js",
