@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sheetung/furinapet-plugins/schemas/manifest.schema.json",
+  "title": "FurinaPet Plugin Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifestVersion",
+    "id",
+    "name",
+    "description",
+    "version",
+    "sdkVersion",
+    "runtime",
+    "entry",
+    "minAppVersion",
+    "permissions"
+  ],
+  "properties": {
+    "manifestVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^furinapet\\.[a-z0-9][a-z0-9.-]*$", "maxLength": 96 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 48 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "sdkVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "runtime": { "enum": ["javascript"] },
+    "entry": { "type": "string", "pattern": "^[A-Za-z0-9._/-]+\\.js$" },
+    "minAppVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "permissions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "events:pet",
+          "pet:reaction",
+          "timer",
+          "config",
+          "storage"
+        ]
+      }
+    },
+    "events": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["pet:clicked", "pet:doubleClicked", "pet:dragStart", "pet:dragEnd"]
+      }
+    },
+    "configSchema": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/configField" }
+    }
+  },
+  "$defs": {
+    "configField": {
+      "type": "object",
+      "required": ["type", "label", "default"],
+      "properties": {
+        "type": { "enum": ["text", "number", "boolean", "select"] },
+        "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "default": {},
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number", "exclusiveMinimum": 0 },
+        "maxLength": { "type": "integer", "minimum": 1, "maximum": 512 },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "label"],
+            "properties": {
+              "value": { "type": "string", "maxLength": 64 },
+              "label": { "type": "string", "maxLength": 64 }
+            }
+          }
+        }
+      }
+    }
+  }
+}
