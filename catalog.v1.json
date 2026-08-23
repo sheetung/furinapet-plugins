@@ -1,0 +1,80 @@
+{
+  "catalogVersion": 1,
+  "plugins": [
+    {
+      "id": "furinapet.click-reaction",
+      "name": "点击互动增强",
+      "description": "增强桌宠的单击、双击和连续点击反馈。",
+      "version": "1.0.0",
+      "manifestVersion": 1,
+      "sdkVersion": "1.0",
+      "minAppVersion": "1.0.9",
+      "publisherType": "official",
+      "source": {
+        "repository": "sheetung/furinapet-plugins",
+        "ref": "main",
+        "path": "plugins/official/click-reaction"
+      },
+      "files": [
+        {
+          "path": "furinapet.plugin.json",
+          "sha256": "8a75aebf0ba715f49b81cdb7473606aa3031a89b61fa6c997e914e4284b288f8"
+        },
+        {
+          "path": "index.js",
+          "sha256": "f1144300d9413263b8c4e333bacf9c3c3a2cd24b1ab02cfc943f204744c63577"
+        }
+      ]
+    },
+    {
+      "id": "furinapet.focus-timer",
+      "name": "专注计时",
+      "description": "让桌宠陪你完成番茄钟专注与休息循环。",
+      "version": "1.0.0",
+      "manifestVersion": 1,
+      "sdkVersion": "1.0",
+      "minAppVersion": "1.0.9",
+      "publisherType": "official",
+      "source": {
+        "repository": "sheetung/furinapet-plugins",
+        "ref": "main",
+        "path": "plugins/official/focus-timer"
+      },
+      "files": [
+        {
+          "path": "furinapet.plugin.json",
+          "sha256": "3ac467ad8ac8197154060dc86e2605dc7c973f3d3aa51e4248f8099847a4e480"
+        },
+        {
+          "path": "index.js",
+          "sha256": "78f7c7fa4c14bb890da21dcb9e51e572ac6baa2c03b268eee373490eb291ee95"
+        }
+      ]
+    },
+    {
+      "id": "furinapet.sedentary-reminder",
+      "name": "久坐提醒",
+      "description": "按设定间隔提醒起身、喝水和活动身体。",
+      "version": "1.0.0",
+      "manifestVersion": 1,
+      "sdkVersion": "1.0",
+      "minAppVersion": "1.0.9",
+      "publisherType": "official",
+      "source": {
+        "repository": "sheetung/furinapet-plugins",
+        "ref": "main",
+        "path": "plugins/official/sedentary-reminder"
+      },
+      "files": [
+        {
+          "path": "furinapet.plugin.json",
+          "sha256": "e838c8463a60d7f1b3e3bee2e64e1bdca08cc1ba3dc2004a2c687ef01b0221c7"
+        },
+        {
+          "path": "index.js",
+          "sha256": "ad2875131bc7f34467646a0e876e650df519255a650f6a1711e99b530eb1f847"
+        }
+      ]
+    }
+  ]
+}
