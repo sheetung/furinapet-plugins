@@ -1,0 +1,49 @@
+{
+  "manifestVersion": 1,
+  "id": "furinapet.click-reaction",
+  "name": "点击互动增强",
+  "description": "增强桌宠的单击、双击和连续点击反馈。",
+  "version": "1.0.0",
+  "sdkVersion": "1.0",
+  "runtime": "javascript",
+  "entry": "index.js",
+  "minAppVersion": "1.0.9",
+  "permissions": [
+    "events:pet",
+    "pet:reaction",
+    "config"
+  ],
+  "events": [
+    "pet:clicked",
+    "pet:doubleClicked"
+  ],
+  "configSchema": {
+    "streakWindowMs": {
+      "type": "number",
+      "label": "连续点击判定时间",
+      "default": 1800,
+      "min": 500,
+      "max": 5000,
+      "step": 100
+    },
+    "streakCount": {
+      "type": "number",
+      "label": "连续点击触发次数",
+      "default": 3,
+      "min": 2,
+      "max": 8,
+      "step": 1
+    },
+    "showBubble": {
+      "type": "boolean",
+      "label": "显示互动气泡",
+      "default": true
+    },
+    "doubleClickMessage": {
+      "type": "text",
+      "label": "双击气泡文案",
+      "default": "哇！突然这么热情，我都吓了一跳！✨",
+      "maxLength": 80
+    }
+  }
+}
