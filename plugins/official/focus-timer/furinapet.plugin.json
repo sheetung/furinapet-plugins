@@ -1,0 +1,45 @@
+{
+  "manifestVersion": 1,
+  "id": "furinapet.focus-timer",
+  "name": "专注计时",
+  "description": "让桌宠陪你完成番茄钟专注与休息循环。",
+  "version": "1.0.0",
+  "sdkVersion": "1.0",
+  "runtime": "javascript",
+  "entry": "index.js",
+  "minAppVersion": "1.0.9",
+  "permissions": [
+    "timer",
+    "pet:reaction",
+    "config",
+    "storage"
+  ],
+  "configSchema": {
+    "focusMinutes": {
+      "type": "number",
+      "label": "专注时长（分钟）",
+      "default": 25,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    "breakMinutes": {
+      "type": "number",
+      "label": "休息时长（分钟）",
+      "default": 5,
+      "min": 1,
+      "max": 60,
+      "step": 1
+    },
+    "autoContinue": {
+      "type": "boolean",
+      "label": "自动进入下一阶段",
+      "default": true
+    },
+    "showStartBubble": {
+      "type": "boolean",
+      "label": "启动时显示提示",
+      "default": true
+    }
+  }
+}
