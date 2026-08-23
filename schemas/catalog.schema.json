@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sheetung/furinapet-plugins/schemas/catalog.schema.json",
+  "title": "FurinaPet Plugin Catalog v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["catalogVersion", "plugins"],
+  "properties": {
+    "catalogVersion": { "const": 1 },
+    "plugins": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/plugin" }
+    }
+  },
+  "$defs": {
+    "plugin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "description", "version", "manifestVersion",
+        "sdkVersion", "minAppVersion", "publisherType", "source", "files"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^furinapet\\." },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "version": { "type": "string" },
+        "manifestVersion": { "const": 1 },
+        "sdkVersion": { "type": "string" },
+        "minAppVersion": { "type": "string" },
+        "publisherType": { "enum": ["official", "community"] },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repository", "ref", "path"],
+          "properties": {
+            "repository": { "type": "string" },
+            "ref": { "type": "string" },
+            "path": { "type": "string" }
+          }
+        },
+        "files": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": { "type": "string" },
+              "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
