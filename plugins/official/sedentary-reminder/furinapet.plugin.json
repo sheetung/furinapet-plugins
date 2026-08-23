@@ -1,0 +1,41 @@
+{
+  "manifestVersion": 1,
+  "id": "furinapet.sedentary-reminder",
+  "name": "久坐提醒",
+  "description": "按设定间隔提醒起身、喝水和活动身体。",
+  "version": "1.0.0",
+  "sdkVersion": "1.0",
+  "runtime": "javascript",
+  "entry": "index.js",
+  "minAppVersion": "1.0.9",
+  "permissions": [
+    "timer",
+    "pet:reaction",
+    "config"
+  ],
+  "configSchema": {
+    "intervalMinutes": {
+      "type": "number",
+      "label": "提醒间隔（分钟）",
+      "default": 45,
+      "min": 5,
+      "max": 180,
+      "step": 5
+    },
+    "reminderType": {
+      "type": "select",
+      "label": "提醒内容",
+      "default": "mixed",
+      "options": [
+        { "value": "mixed", "label": "随机" },
+        { "value": "stand", "label": "起身活动" },
+        { "value": "water", "label": "喝水" }
+      ]
+    },
+    "showBubble": {
+      "type": "boolean",
+      "label": "显示提醒气泡",
+      "default": true
+    }
+  }
+}
